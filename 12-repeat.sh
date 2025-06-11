@@ -27,3 +27,5 @@ else
     echo "Failed to install Git."
     exit 1
 fi
+
+dnf install git -y
