@@ -2,8 +2,6 @@
 
 abc=( "one" "two" "three" )
 
-echo "
-
 echo ${abc[0]}   # apple
 echo ${abc[1]}   # banana
 echo ${abc[@]}
