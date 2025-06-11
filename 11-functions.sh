@@ -1,6 +1,14 @@
 #!/bin/bash
 
 userid=$(id -u)
+TIME_STAMP=$(Date+%F-%H-%M-%S)
+SCRIPT_NAME=$(echo $0 | cut -d '.' -f1)
+LOGFILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log
+
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 if [ $userid -ne 0 ]
 then 
@@ -13,10 +21,10 @@ fi
 VALIDATE(){
 if [ $1 -ne 0 ]
 then 
-    echo "$2... is failure"
+    echo -e "$R $2... is failure $N"
     exit 1
 else    
-    echo "$2... is success"
+    echo "$G $2... is success $N"
 fi
 }
 
