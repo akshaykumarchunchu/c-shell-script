@@ -10,14 +10,15 @@ else
     echo "You're a super user"
 fi
 
-VALIDATE()
+VALIDATE(){
 if [ $1 -ne 0 ]
 then 
-    echo "$1 is failure"
+    echo "$2... is failure"
     exit 1
 else    
-    echo "$2 is success"
+    echo "$2... is success"
 fi
+}
 
 dnf install mysql -y
 VALIDATE $? "Installating mysql"
