@@ -10,6 +10,16 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+VALIDATE(){
+if [ $1 -ne 0 ]
+then 
+    echo -e "$2...$R is failure $N"
+    exit 1
+else    
+    echo -e "$2...$G is success $N"
+fi
+}
+
 if [ $userid -ne 0 ]
 then 
     echo "Please run with super user"
@@ -17,16 +27,6 @@ then
 else
     echo "You're a super user"
 fi
-
-VALIDATE(){
-if [ $1 -ne 0 ]
-then 
-    echo -e "$R $2... is failure $N"
-    exit 1
-else    
-    echo "$G $2... is success $N"
-fi
-}
 
 dnf install mysql -y
 VALIDATE $? "Installating mysql"
