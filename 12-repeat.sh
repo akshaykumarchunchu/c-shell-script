@@ -1,8 +1,9 @@
-number=$1
+#!/bin/bash
 
-if [ $number -gt 10 ]
-then 
-    echo "$number is greater in 10"
-else
-    echo "$number is less then 10"
-fi
+abc=( "one" "two" "three" )
+
+echo "
+
+echo ${abc[0]}   # apple
+echo ${abc[1]}   # banana
+echo ${abc[@]}
