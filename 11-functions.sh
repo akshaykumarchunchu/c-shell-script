@@ -1,7 +1,7 @@
 #!/bin/bash
 
 userid=$(id -u)
-TIME_STAMP=$(Date+%F-%H-%M-%S)
+TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d '.' -f1)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log
 
