@@ -29,10 +29,10 @@ else
 fi
 
 dnf install mysql -y
-VALIDATE $? "Installating mysql"
+VALIDATE $? -e "$G Installating mysql"
 
 dnf install git -y
-VALIDATE $? "Installating git"
+VALIDATE $? -e "$G Installating git"
 
 
 
