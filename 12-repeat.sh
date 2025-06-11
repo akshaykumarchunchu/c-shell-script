@@ -2,7 +2,7 @@
 
 userid=$(id -u)
 
-if [ userid -ne 0 ]
+if [ $userid -ne 0 ]
 then 
     echo "Run with a super user"
     exit 1
