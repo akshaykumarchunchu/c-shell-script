@@ -17,7 +17,8 @@ VALIDATE(){
         echo "$2 is failure"
     else
         echo "$2 is success"
-}
+    fi
+    }
 
 if [ $userid -ne 0 ]
 then 
