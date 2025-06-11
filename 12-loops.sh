@@ -2,6 +2,6 @@
 
 for i in {1..20} 
 do 
-    echo "Number: $1"
+    echo "Number: $i"
 done
 
