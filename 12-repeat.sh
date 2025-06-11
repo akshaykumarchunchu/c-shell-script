@@ -7,7 +7,7 @@ echo "Updating package list..."
 
 # Install nginx
 echo "Installing NGINX..."
-if [ $userid -ne 0]
+if [ $userid -ne 0 ]
 then
     echo "NGINX installed successfully."
 else
