@@ -49,6 +49,7 @@ do
     then 
         echo "$i is already installed.. SKIPPING"
     else    
-        echo "$i is not installed.. Need to install"
+        dnf install $i -y &>>LOGFILE
+        VALIDATE $? "Packages installed $i"
     fi
 done
