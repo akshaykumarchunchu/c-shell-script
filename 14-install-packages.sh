@@ -37,4 +37,5 @@ do
         echo "$i already installed...SKIPPING"
     else    
         echo "$i Not installed.. Need to Install"
+    fi
 done
