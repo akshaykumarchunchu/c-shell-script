@@ -11,14 +11,14 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-# VALIDATE(){
-#     if [ $1 -ne 0 ]
-#     then 
-#         echo "$2 is failure"
-#     else
-#         echo "$2 is success"
-#     fi
-#     }
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then 
+        echo "$2 is failure"
+    else
+        echo "$2 is success"
+    fi
+    }
 
 if [ $userid -ne 0 ]
 then 
@@ -30,12 +30,13 @@ fi
 
 for i in $@
 do 
-    echo "package to installing $i"
+    echo "packages to installing $i"
     dnf list installed $i &>>$LOGFILE
     if [ $? -eq 0 ]
     then 
-        echo "$i already installed...SKIPPING"
+        echo -e "$i already installed ...SKIPPING"
     else    
-        echo "$i Not installed.. Need to Install"
+        dnf install $i -y &>>LOGFILE 
+        VALIDATE $? "installation of $i"
     fi
 done
