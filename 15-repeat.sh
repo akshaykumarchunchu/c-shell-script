@@ -33,11 +33,11 @@ for i in $i
 do 
     echo "Packages installing $i"
     dnf list install $i &>>$LOGFILE
-    if [ $i -eq 0 ]
+    if [ $? -eq 0 ]
     then 
         echo "Already packages installed $i..SKIPPING"
     else 
-        dnf list install $i &>>$LOGFILE
+        dnf list install $i -y &>>$LOGFILE
         VALIDATE $? "Packages installed"
     fi 
 done
