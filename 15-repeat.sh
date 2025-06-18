@@ -29,9 +29,9 @@ VALIDATE(){
         echo -e "$G you're a super user $N"
     fi
 
-dnf install git -y &>>$LOGFILE
+dnf install git -y &>>LOGFILE
 VALIDATE $? -e "$G Installed git is Success $N"
 
-dnf install mysql -y &>>$LOGFILE
+dnf install mysql -y &>>LOGFILE
 VALIDATE $? -e "$G installed mysql in success $N"
 
