@@ -12,6 +12,15 @@ Y="\e[33m"
 N="\e[0m"
 
 VALIDATE(){
+    if [ $1 -ne 0 ]
+    then 
+        echo "$2 is not success"
+        exit 1
+    else    
+        echo "$2 is success"
+    fi
+}
+
     if [ $userid -ne 0 ]
     then 
         echo "you're not a super user"
@@ -19,7 +28,6 @@ VALIDATE(){
     else    
         echo "you're a super user"
     fi
-}
 
 dnf install git -y &>>LOGFILE
 VALIDATE $? "Installed git is Success"
