@@ -12,7 +12,7 @@ Y="\e[33m"
 N="\e[0m"
 
 VALIDATE(){
-    if [ $userid ne 0 ]
+    if ( $userid ne 0 )
     then 
         echo "you're not a super user"
         exit 1
