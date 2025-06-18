@@ -28,19 +28,6 @@ else
     echo "Your a Super user"
 fi
 
-# for i in $@
-# do 
-#     echo "packages to installing $i"
-#     dnf list installed $i &>>$LOGFILE
-#     if [ $? -eq 0 ]
-#     then 
-#         echo -e "$i already installed ...SKIPPING"
-#     else    
-#         dnf install $i -y &>>LOGFILE 
-#         VALIDATE $? "installation of $i"
-#     fi
-# done
-
 for i in $@
 do 
     echo "packages to install $i"
@@ -49,7 +36,9 @@ do
     then 
         echo "$i is already installed.. SKIPPING"
     else    
-        dnf install $i -y &>>LOGFILE
+        dnf install $i -y &>>$LOGFILE
         VALIDATE $? "Packages installed $i"
     fi
 done
+
+

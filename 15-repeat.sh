@@ -29,9 +29,16 @@ VALIDATE(){
         echo -e "$G you're a super user $N"
     fi
 
-dnf install git -y &>>LOGFILE
-VALIDATE $? "$G Installed git is Success $N"
-
-dnf install mysql -y &>>LOGFILE
-VALIDATE $? "$G installed mysql in success $N"
+for i in $i
+do 
+    echo "Packages installing $i"
+    dnf list install $i &>>$LOGFILE
+    if [ $i -eq 0 ]
+    then 
+        echo "Already packages installed $i..SKIPPING"
+    else 
+        dnf list install $i &>>$LOGFILE
+        VALIDATE $? "Packages installed"
+    fi 
+done
 
