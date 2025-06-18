@@ -14,20 +14,24 @@ N="\e[0m"
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-        echo "$2 is not success"
+        echo -e "$R $2 is not success $N"
         exit 1
     else    
-        echo "$2 is success"
+        echo -e "$R $2 is success $N"
     fi
 }
 
     if [ $userid -ne 0 ]
     then 
-        echo "you're not a super user"
+        echo -e "$R you're not a super user $N"
         exit 1
     else    
-        echo "you're a super user"
+        echo -e "$G you're a super user $N"
     fi
 
 dnf install git -y &>>LOGFILE
-VALIDATE $? "Installed git is Success"
+VALIDATE $? -e "$G Installed git is Success $N"
+
+dnf install mysql -y &>>LOGFILE
+VALIDATE $? -e "$G installed mysql in success $N"
+
