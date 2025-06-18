@@ -30,8 +30,8 @@ VALIDATE(){
     fi
 
 dnf install git -y &>>LOGFILE
-VALIDATE $? -e "$G Installed git is Success $N"
+VALIDATE $? "-e $G Installed git is Success $N"
 
 dnf install mysql -y &>>LOGFILE
-VALIDATE $? -e "$G installed mysql in success $N"
+VALIDATE $? "-e $G installed mysql in success $N"
 
