@@ -26,12 +26,12 @@ VALIDATE(){
         echo -e "$R you're not a super user $N"
         exit 1
     else    
-        echo -e "$R you're a super user $N"
+        echo -e "$G you're a super user $N"
     fi
 
-dnf install git -y &>>LOGFILE
-VALIDATE $? -e "$R Installed git is Success $N"
+dnf install git -y &>>$LOGFILE
+VALIDATE $? -e "$G Installed git is Success $N"
 
-dnf install mysql -y &>>LOGFILE
-VALIDATE $? -e "$R installed mysql in success $N"
+dnf install mysql -y &>>$LOGFILE
+VALIDATE $? -e "$G installed mysql in success $N"
 
