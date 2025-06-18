@@ -29,7 +29,7 @@ VALIDATE(){
         echo -e "$G you're a super user $N"
     fi
 
-for i in $i
+for i in $@
 do 
     echo "Packages installing $i"
     dnf list install $i &>>$LOGFILE
@@ -37,7 +37,7 @@ do
     then 
         echo "Already packages installed $i..SKIPPING"
     else 
-        dnf list install $i -y &>>$LOGFILE
+        dnf install $i -y &>>$LOGFILE
         VALIDATE $? "Packages installed"
     fi 
 done
