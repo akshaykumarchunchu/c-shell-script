@@ -3,8 +3,8 @@
 userid=$(id -u)
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
-SCRIPTNAME=$(echo $0 | cut -d '.' -f1)
-LOGFILE=/temp/$SCRIPTNAME-$TIME_STAMP.log
+SCRIPT_NAME=$(echo $0 | cut -d '.' -f1)
+LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
 R="\e[31m"
 G="\e[32m"
