@@ -31,12 +31,12 @@ fi
 for i in $@
 do 
     echo "install list of $i"
-    dnf list install $i -y &>>$LOGFILE
+    dnf list install $i &>>$LOGFILE
     if [ $? -eq 0 ]
     then 
-        echo "$i is already installed..SKIPPING"
+        echo "$i is already installed..SKIPPING" # In line 34 if it's installed successfully then in this line its already installed
     else
-        dnf install $i -y &>>$LOGFILE
+        dnf install $i -y &>>$LOGFILE   # This command is for if it's not install in line 34 then install here in 39th line
         VALIDATE $? "Installed $i"
     fi
 done
