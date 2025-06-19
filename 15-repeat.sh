@@ -31,3 +31,15 @@ fi
 dnf install git -y &>>$LOGFILE
 VALIDATE $? "Installed git"
 
+for i in $@
+do 
+    echo "install list of $i"
+    dnf list install $i -y &>>$LOGFILE
+    if [ $? -eq 0 ]
+    then 
+        echo "$i is already installed..SKIPPING"
+    else
+        dnf install $i -y &>>$LOGFILE
+        VALIDATE $? "Installed $i"
+    fi
+done
