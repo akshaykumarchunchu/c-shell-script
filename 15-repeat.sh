@@ -31,7 +31,7 @@ fi
 for i in $@
 do 
     echo "install list of $i"
-    dnf list install $i &>>$LOGFILE
+    dnf list installed $i &>>$LOGFILE
     if [ $? -eq 0 ]
     then 
         echo "$i is already installed..SKIPPING" # In line 34 if it's installed successfully then in this line its already installed
