@@ -3,42 +3,31 @@
 userid=$(id -u)
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
-SCRIPT_NAME=$(echo $0 | cut -d '.' -f1)
+SCRIPT_NAME=$(echo $0 | cut '.' -f)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
-N="\e[0m"
+R="e\[31m"
+G="e\[32m"
+Y="e\[33m"
+N="e\[0m"
 
 VALIDATE(){
-    if [ $1 -ne 0 ]
+    if [ $1 -eq 0 ]
     then 
-        echo -e "$R $2 is not success $N"
-        exit 1
+        echo "$2 installed git..SKIPPING"
     else    
-        echo -e "$R $2 is success $N"
+        echo "$2 git is not install"
     fi
 }
 
-    if [ $userid -ne 0 ]
-    then 
-        echo -e "$R you're not a super user $N"
-        exit 1
-    else    
-        echo -e "$G you're a super user $N"
-    fi
+if [ $userid -ne 0 ]
+then 
+    echo "You're a not superuser"
+    exit 1
+else    
+    echo "You're a Superuser"
+fi 
 
-for i in $@
-do 
-    echo "Packages installing $i"
-    dnf list install $i &>>$LOGFILE
-    if [ $? -eq 0 ]
-    then 
-        echo "Already packages installed $i..SKIPPING"
-    else 
-        dnf install $i -y &>>$LOGFILE
-        VALIDATE $? "Packages installed"
-    fi 
-done
+dnf install git -y &>>$LOGFILE
+VALIDATE $? "Installed git"
 
