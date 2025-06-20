@@ -32,11 +32,11 @@ for i in $@
 do 
     echo "packages to install $i"
     dnf list of installed $i &>>$LOGFILE
-    if [ $? -eq 0 ]
+    if [ $? -eq 0 ]                                     # This line command is if line 34 is true then packages installed
     then 
         echo "$i is already installed.. SKIPPING"
     else    
-        dnf install $i -y &>>$LOGFILE
+        dnf install $i -y &>>$LOGFILE                   # This line command is if line 34 is false then now install missing packages
         VALIDATE $? "Packages installed $i"
     fi
 done
