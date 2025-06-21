@@ -11,15 +11,6 @@ G="\e[32m"
 Y="\e[31m"
 N="\e[0m"
 
-VALIDATE(){
-    if [ $1 -ne 0 ]
-    then 
-        echo "$2 command is failure"
-    else
-        echo "$2 is success"
-    fi 
-}
-
 if [ $userid -ne 0 ]
 then 
     echo "You're not a superuser"
@@ -30,6 +21,6 @@ fi
 
 for i in $@
 do 
-    dnf install $i &>>LOGFILE
-    VALIDATE $? "$i is Already installed"
+    dnf install $i -y &>>LOGFILE
+    echo "$i Packages installed"
 done
