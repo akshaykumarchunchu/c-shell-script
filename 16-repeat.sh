@@ -31,5 +31,5 @@ fi
 for i in $@
 do 
     dnf install $i &>>LOGFILE
-    echo "$i is already installed"
+    VALIDATE $? "$i is Already installed"
 done
