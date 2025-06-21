@@ -28,5 +28,8 @@ else
     echo "You're superuser"
 fi
 
-dnf install git -y &>>$LOGFILE
-VALIDATE $? "Installing git"
+for i in $@
+do 
+    dnf install $i &>>LOGFILE
+    echo "$i is already installed"
+done
