@@ -12,7 +12,7 @@ Y="\e[31m"
 N="\e[0m"
 
 VALIDATE(){
-    if [ $1 -eq 0 ]
+    if [ $1 -ne 0 ]
     then 
         echo "$2 command is failure"
     else
