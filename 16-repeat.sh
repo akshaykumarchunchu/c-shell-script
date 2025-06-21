@@ -20,7 +20,6 @@ VALIDATE(){
     fi 
 }
 
-
 if [ $userid -ne 0 ]
 then 
     echo "You're not a superuser"
