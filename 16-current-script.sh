@@ -3,6 +3,15 @@
 COURSE="Devops from current script"
 
 echo "Before calling from other script:$COURSE"
-echo "$$"
+echo "PROCESS ID of current shell script: $$"
+
+./17-other-script.sh 
+
+
+
+
+
+
+
 
 
