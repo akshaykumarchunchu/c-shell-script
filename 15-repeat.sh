@@ -27,7 +27,7 @@ then
 else    
     echo "You're a Superuser"
 fi 
-
+    
 for i in $@
 do 
     echo "install list of $i"
