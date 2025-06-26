@@ -6,7 +6,7 @@ failure(){
     echo "failed at $1"
 }
 
-trap 'failure ${LINENO}' ERR
+trap 'failure ${LINENO}' "$BASH_COMMAND"' ERR
 
 USERID=$(id -u)
 
