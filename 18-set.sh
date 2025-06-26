@@ -2,6 +2,8 @@
 
 set -e 
 
+trap 'failure ${LINENO} $"BASH_COMMAND"'ERR
+
 USERID=$(id -u)
 
 #(id -u) is a command and this output of command will given to "USERID" variable as a value
