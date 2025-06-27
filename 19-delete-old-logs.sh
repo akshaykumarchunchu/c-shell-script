@@ -13,6 +13,6 @@ fi
 
 FILES=(find $SOURCE_DIRECTORY -name ".log" -mtime +14)
 
-echo "files deletes: $FILES"
+echo "files deletes:$FILES"
 
 
