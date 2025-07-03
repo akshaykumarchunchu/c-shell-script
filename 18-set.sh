@@ -1,12 +1,12 @@
 #!/bin/bash
 
-set -e 
+set -e                      # set -e will auto exit the code when their is a error on the command line
 
 failure(){
     echo "failed at $1: $2"
 }
 
-trap 'failure ${LINENO} "$BASH_COMMAND"' ERR
+trap 'failure ${LINENO} "$BASH_COMMAND"' ERR        # Will find the error from the code and line 
 
 USERID=$(id -u)
 
