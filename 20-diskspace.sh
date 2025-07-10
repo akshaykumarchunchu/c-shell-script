@@ -5,7 +5,7 @@ DISK_THERSHOLD=6
 
 while IFS= read -s $line
 do 
-    usage=$(df -hT | grep xfs | awk -F " " '{print$6F}')
+    usage=$(echo $line | awk -F " " '{print$6F}')
 done <<< $DISK_USAGE    
 #     if [ $DISKSPACE -gt $THERSHOLD ]
 # then 
