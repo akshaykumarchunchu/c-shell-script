@@ -1,4 +1,8 @@
 #!/bin/bash
 
-echo "Hello World"
+DISKSPACE=(df -hT | grep xfs)
+
+
+
+
 
