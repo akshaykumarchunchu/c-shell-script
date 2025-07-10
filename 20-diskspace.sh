@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DISKSPACE=(df -hT | grep xfs)
+DISKSPACE=$(df -hT | grep xfs)
 THERSHOLD=6
 
 if [ $DISKSPACE -gt $THERSHOLD]
