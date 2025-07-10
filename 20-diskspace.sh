@@ -1,12 +1,16 @@
 #!/bin/bash
 
-DISKSPACE=$(df -hT | grep xfs)
-THERSHOLD=6
+DISK_USAGE=$(df -hT | grep xfs)
+DISK_THERSHOLD=6
 
-if [ $DISKSPACE -gt $THERSHOLD ]
-then 
+while IFS= read -s $line
+do 
     usage=$(df -hT | grep xfs | awk -F " " '{print$6F}')
-fi
+done <<< $DISK_USAGE    
+#     if [ $DISKSPACE -gt $THERSHOLD ]
+# then 
+#     usage=$(df -hT | grep xfs | awk -F " " '{print$6F}')
+# fi
 
 
 
