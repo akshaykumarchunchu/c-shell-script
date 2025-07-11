@@ -6,10 +6,10 @@ MESSAGE=""
 
 while IFS= read -s $line
 do 
-    usage=$(echo $line | awk -F " " '{print$6F}'| cut -d "%" -f1 )
-    if [ $usage -ge $DISK_THERSHOLD ]
+    USAGE=$(echo $line | awk -F " " '{print$6F}'| cut -d "%" -f1 )
+    if [ $USAGE -ge $DISK_THERSHOLD ]
     then 
-        MESSAGE+=$usage is more than $DISK_THERSHOLD
+        MESSAGE+="$usage is more than $DISK_THERSHOLD"
     fi
 done <<< $DISK_USAGE    
 
