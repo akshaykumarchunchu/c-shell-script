@@ -9,7 +9,7 @@ do
     USAGE=$(echo $line | awk -F " " '{print$6F}'| cut -d "%" -f1 )
     if [ "$USAGE" -ge "$DISK_THERSHOLD" ]
     then 
-        MESSAGE+="$usage is more than $DISK_THERSHOLD"
+        MESSAGE+="$usage is more than $DISK_THERSHOLD \n"
     fi
 done <<< $DISK_USAGE    
 
