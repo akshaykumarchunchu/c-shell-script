@@ -14,7 +14,7 @@ do
     fi
 done <<< $DISK_USAGE    
 
-#echo -e "message: $MESSAGE"
+echo -e "message: $MESSAGE"
 
 #     if [ $DISKSPACE -gt $THERSHOLD ]
 # then 
